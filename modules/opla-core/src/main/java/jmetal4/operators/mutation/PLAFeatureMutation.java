@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 
+import jmetal4.operators.mutation.interaction.Executor;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -609,6 +609,11 @@ public class PLAFeatureMutation extends Mutation {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    // --------------------------------------------------------------------------
+    public void featureInteractionMutation(double probability, Solution solution) throws JMException {
+        Executor.interactionMutation(probability, solution);
     }
 
     private List<Package> searchComponentsAssignedToConcern(Concern concern, List<Package> allComponents) {
